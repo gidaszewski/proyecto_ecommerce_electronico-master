@@ -25,22 +25,8 @@ urlpatterns = [
     path('about/', include('About.urls')),
     path('contacto/',include('contacto.urls')),
     path('autenticacion/',include('autenticacion.urls')),
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-    path('tienda/',include('tienda.urls')),
     path('carro/',include('carro.urls')),
-
-
-  
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
-]
+    path('tienda/',include('tienda.urls'))]
 
 
 if settings.DEBUG:
