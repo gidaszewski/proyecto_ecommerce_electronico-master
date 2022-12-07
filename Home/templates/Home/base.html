@@ -32,27 +32,10 @@
   </head>
 
   <body>
-    <div style="text-align: right; margin-right: 100px; color: white">
-      {% if user.is_authenticated %} Hola {{ user.username }} &nbsp; &nbsp;<a
-        href="{% url 'cerrar_sesion'  %}"
-        style="color: white"
-        >cerrar sesion</a
-      >
-
-      {% else %}
-
-      <a href="{% url 'logear' %}" style="color: white"> Login </a>
-      &nbsp;&nbsp;&nbsp;<a href="{% url 'Autenticacion' %}" style="color: white"
-        >Registrate
-      </a>
-
-      {% endif %}
-    </div>
-
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-black">
       <div class="container px-4 px-lg-5">
-        <a style="color: white" class="navbar-brand" href="#!">Eureka</a>
+        <a style="color: white" class="navbar-brand" href="{% url 'home'%}">Eureka</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -68,21 +51,27 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item">
               <a
-                style="color: white"
-                class="nav-link active"
+                style="color: rgb(255, 255, 255)"
+                class="nav-link"
                 aria-current="page"
+                href="http://127.0.0.1:8000/"
                 href="{% url 'home'%}"
-                >INICIO</a
+                >Inicio</a
               >
             </li>
             <li class="nav-item">
               <a style="color: white" class="nav-link" href="{%url 'tienda'%}"
-                >TIENDA</a
+                >Tienda</a
+              >
+            </li>
+            <li class="nav-item">
+              <a style="color: white" class="nav-link" href="{%url 'categorias'%}"
+                >Categorias</a
               >
             </li>
             <li class="nav-item">
               <a style="color: white" class="nav-link" href="{%url 'contacto'%}"
-                >CONTACTO</a
+                >Contacto</a
               >
             </li>
             <li class="nav-item">
@@ -93,28 +82,23 @@
                 >About</a
               >
             </li>
-            <li class="nav-item dropdown">
-              <a
-                style="color: white"
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >Shop</a
-              >
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#!">Todos los productos</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#!">Categorias</a></li>
-                <li><a class="dropdown-item" href="#!">SALE</a></li>
-                <li><a class="dropdown-item" href="#!">SALE</a></li>
-              </ul>
-            </li>
           </ul>
+        <div class="text-white-50">
+          {% if user.is_authenticated %} Hola {{ user.username }} &nbsp; &nbsp;<a
+            href="{% url 'cerrar_sesion'  %}"
+            class="btn btn-outline-dark"
+            >Cerrar sesion</a
+          >
+    
+          {% else %}
+    
+          <a href="{% url 'logear' %}" class="btn btn-outline-dark"> Login </a>
+          &nbsp;&nbsp;&nbsp;<a href="{% url 'Autenticacion' %}" class="btn btn-outline-dark"
+            >Registrate
+          </a>
+    
+          {% endif %}
+        </div>
         </div>
       </div>
     </nav>
@@ -122,9 +106,9 @@
     {% block contenido %} {% endblock %}
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Eureka 2022</p>
+    <footer class="py-5 bg-black">
+      <div class="text-center text-white">
+        <h5 class="display-8 fw-bolder text-white-20">Copyright &copy; Eureka 2022</h5>  
       </div>
     </footer>
     <!-- Bootstrap core JS-->
@@ -133,6 +117,7 @@
     <script src="{%static 'home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Core theme JS-->
     <script src="{% static 'Home/js/scripts.js' %}"></script>
-    {%block scripts%}{%endblock%}
+    {%block scripts%}
+    {%endblock%}
   </body>
 </html>
